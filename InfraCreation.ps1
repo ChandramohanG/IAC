@@ -387,25 +387,16 @@ function Create-WindowsVM {
                             -Location $vnet.Location `
                             -Name $VMName"_pip2" `
                             -AllocationMethod Dynamic `
-                            -DomainNameLabel $VMName"2018"
-
-                if(!$SubNetName){
-                    $nic = New-AzureRmNetworkInterface `
-                        -Name $VMName"_nic" `
-                        -ResourceGroupName $vnet.ResourceGroupName `
-                        -Location $vnet.Location `
-                        -PublicIpAddressId $pip.Id `
-                        -NetworkSecurityGroupId $nsg.Id
-                }
-                else {
-                     $nic = New-AzureRmNetworkInterface `
-                        -Name $VMName"_nic" `
-                        -ResourceGroupName $vnet.ResourceGroupName `
-                        -Location $vnet.Location `
-                        -SubnetId $subnetId.Id `
-                        -PublicIpAddressId $pip.Id `
-                        -NetworkSecurityGroupId $nsg.Id
-                }
+                            -DomainNameLabel $VMName"2018" -Force
+ 
+                $nic = New-AzureRmNetworkInterface `
+                            -Name $VMName"_nic" `
+                            -ResourceGroupName $vnet.ResourceGroupName `
+                            -Location $vnet.Location `
+                            -SubnetId $subnetId.Id `
+                            -PublicIpAddressId $pip.Id `
+                            -NetworkSecurityGroupId $nsg.Id
+                 
                 
                 if($availset) {
                     $vmconfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_A0 -AvailabilitySetId $availset.Id | `

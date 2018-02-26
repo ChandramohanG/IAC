@@ -8,7 +8,11 @@ IAC using Azure - PowerShell functions. Compose as you like to create an Infrast
 2. Simple1VMEnvironment.ps1 - Create a simple VM environment
 
    ![Simple VM](SimpleVM.png)
-
+   
+    Note: 2 Login prompts will be prompted.
+   
+         1. Login to Azure with your credentials
+         2. Login Information for the VM's
 
 3. Projet1_STAGEEnvironment.ps1  - Sample file contains an Infrastructure with 1 Virtual Network, 2 SubNets, 2 VM's with IIS,
    1 SQL Server.
