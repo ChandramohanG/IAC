@@ -34,13 +34,13 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
                                 Create-WindowsVM -VMName "vmweb1" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-FrontEnd" -SubNetName "frontEndSubNet" -SQLServer "No" |
 
                                 #Install-IIS
-                                Install-IIS -VMName "vmweb1" | 
+                                Install-IIS -VMName "vmweb1" -RGName "Agile2018_RG" | 
 
                                 # Create Second Widows VM
                                 Create-WindowsVM -VMName "vmweb2" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-FrontEnd" -SubNetName "frontEndSubNet" -SQLServer "No" |
 
                                     #Install-IIS
-                                Install-IIS -VMName "vmweb2" 
+                                Install-IIS -VMName "vmweb2"  -RGName "Agile2018_RG" 
 
                                 # Create a public IP Address
                                 Create-StaticIPAddress -RGName "Agile2018_RG" | 

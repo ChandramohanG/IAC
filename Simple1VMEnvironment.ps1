@@ -8,7 +8,7 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
     Create-VirtualNetwork -Name "simpleVM1Vnet" -AddressSpace  192.169.0.0/16 |
      
       # Create a Sub Network
-        Create-SubNetwork -Name "SimpleVMfrontEndSubNet" -AddressSpace 192.169.1.0/24 |
+        Create-SubNetwork -Name "SimpleVMfrontEndSubNet" -AddressSpace 192.169.1.0/24 
 
       # Create NSG
         Create-NetworkSecurityGroup -Name "NSG-SimpleVMFrontEnd" -rgName "Agile2018_RG"
@@ -25,3 +25,6 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
 
                         # Create Second Widows VM
                         Create-WindowsVM -VMName "vmsimple1" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-SimpleVMFrontEnd" -SubNetName "SimpleVMfrontEndSubNet" -SQLServer "No"
+                              
+                              #Install-IIS
+                              Install-IIS -VMName "vmsimple1"  -RGName "Agile2018_RG" 

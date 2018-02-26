@@ -452,15 +452,16 @@ function Install-IIS {
    [cmdletbinding()]
    Param
    ( 
-        [Parameter(ValueFromPipeline)] 
-        $availset,
+        [Parameter(Mandatory=$true, Position=1)]
+        $VMName,
         [Parameter(Mandatory=$true, Position=2)]
-        $VMName
+        $RGName
+
    ) 
            
         try {
             
-            $rg = Get-AzureRmResourceGroup -Name $availset.ResourceGroupName
+            $rg = Get-AzureRmResourceGroup -Name $RGName
            
             # Install IIS
             $PublicSettings = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}'
@@ -472,7 +473,7 @@ function Install-IIS {
             #Success Message
             Write-Host 'IIS Installed successfully!' -ForegroundColor Green
 
-            return $availset
+            return $rg
 
     } catch {
                 Write-Host $_.Exception.Message -ForegroundColor Red
