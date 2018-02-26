@@ -6,11 +6,14 @@ IAC using Azure - PowerShell functions. Compose as you like to create an Infrast
      for the opened session.
      
 2. Projet1_STAGEEnvironment.ps1  - Sample file contains an Infrastructure with 1 Virtual Network, 2 SubNets, 2 VM's with IIS,
-   1 SQL Server
+   1 SQL Server.
+
+   Note: 2 Login prompts will be prompted.
    
-3. InfraDiagram - Diagram of the sample
-
-
+         1. Login to Azure with your credentials
+         2. Login Information for the VM's
+   
+3. InfraDiagram - Diagram of the sample.
    
 
 

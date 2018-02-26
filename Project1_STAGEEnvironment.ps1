@@ -1,6 +1,6 @@
 ﻿
 
-Login-Azure 
+Login-Azure -SubscriptionName 'Pay-As-You-Go-Action-Pack'
 
 # Create an AZURE Resoruce Group.
 Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" | 
