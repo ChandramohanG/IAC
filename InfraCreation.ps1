@@ -357,7 +357,7 @@ function Create-WindowsVM {
         $StorageAccountName,
         [Parameter(Mandatory=$true, Position=4)]
         $NSGName,
-        [Parameter(Mandatory=$true, Position=5)]
+        [Parameter(Mandatory=$false, Position=5)]
         $SubNetName,
         [Parameter(Mandatory=$true, Position=6)]
         $SQLServer="No"
@@ -389,14 +389,23 @@ function Create-WindowsVM {
                             -AllocationMethod Dynamic `
                             -DomainNameLabel $VMName"2018"
 
-                $nic = New-AzureRmNetworkInterface `
-                    -Name $VMName"_nic" `
-                    -ResourceGroupName $vnet.ResourceGroupName `
-                    -Location $vnet.Location `
-                    -SubnetId $subnetId.Id `
-                    -PublicIpAddressId $pip.Id `
-                    -NetworkSecurityGroupId $nsg.Id
-
+                if(!$SubNetName){
+                    $nic = New-AzureRmNetworkInterface `
+                        -Name $VMName"_nic" `
+                        -ResourceGroupName $vnet.ResourceGroupName `
+                        -Location $vnet.Location `
+                        -PublicIpAddressId $pip.Id `
+                        -NetworkSecurityGroupId $nsg.Id
+                }
+                else {
+                     $nic = New-AzureRmNetworkInterface `
+                        -Name $VMName"_nic" `
+                        -ResourceGroupName $vnet.ResourceGroupName `
+                        -Location $vnet.Location `
+                        -SubnetId $subnetId.Id `
+                        -PublicIpAddressId $pip.Id `
+                        -NetworkSecurityGroupId $nsg.Id
+                }
                 
                 if($availset) {
                     $vmconfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_A0 -AvailabilitySetId $availset.Id | `
