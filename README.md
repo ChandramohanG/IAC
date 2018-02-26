@@ -5,8 +5,8 @@ IAC using Azure - PowerShell functions. Compose as you like to create an Infrast
    * Open this file in Powershell in Administrator mode and EXECUTE it. This will create all the functions and keep it ready 
      for the opened session.
 
-
 2. Simple1VMEnvironment.ps1 - Create a simple VM environment
+
    ![Simple VM](SimpleVM.png)
 
 
