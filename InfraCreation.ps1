@@ -285,7 +285,7 @@ function Associate-NSGtoSubNet {
             $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rg.ResourceGroupName
 
             # Associate the NSG created above to the FrontEnd subnet
-            Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name frontEndSubNet -AddressPrefix $NetworkPrefix -NetworkSecurityGroup $nsg
+            Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $SubNetName -AddressPrefix $NetworkPrefix -NetworkSecurityGroup $nsg
                      
             #Success Message
             Write-Host 'NSG associated to a subnet' -ForegroundColor Green

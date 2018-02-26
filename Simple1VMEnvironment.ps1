@@ -20,5 +20,8 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
                     # Add Network Security Rule
                     Add-NetworkSecurityRule -NsgName "NSG-SimpleVMFrontEnd" -RGName "Agile2018_RG" -Rules $rules
                     
-                    # Create Second Widows VM
-                    Create-WindowsVM -VMName "vmsimple1" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-SimpleVMFrontEnd" -SubNetName "SimpleVMfrontEndSubNet" -SQLServer "No"
+                      # Associate NDG subnet
+                        Associate-NSGtoSubNet -RGName "Agile2018_RG" -SubNetName "SimpleVMfrontEndSubNet" -NetworkPrefix 192.169.1.0/24
+
+                        # Create Second Widows VM
+                        Create-WindowsVM -VMName "vmsimple1" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-SimpleVMFrontEnd" -SubNetName "SimpleVMfrontEndSubNet" -SQLServer "No"
