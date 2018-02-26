@@ -19,7 +19,7 @@ IAC using Azure - PowerShell functions. Compose as you like to create an Infrast
          2. Login Information for the VM's
    
 4. InfraDiagram - Diagram of the sample.
-   ![ 2VM 1 SQL](images/InfraDiagram.png)
+   ![ 2VM 1 SQL](InfraDiagram.png)
 
 
 
