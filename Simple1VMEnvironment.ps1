@@ -27,4 +27,4 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
                         Create-WindowsVM -VMName "vmsimple1" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-SimpleVMFrontEnd" -SubNetName "SimpleVMfrontEndSubNet" -SQLServer "No"
                               
                               #Install-IIS
-                              Install-IIS -VMName "vmsimple1"  -RGName "Agile2018_RG" 
+                              Install-IIS -VMName "vmsimple1" -RGName "Agile2018_RG" 

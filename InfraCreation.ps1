@@ -1,6 +1,24 @@
 
-# Login
-#'Pay-As-You-Go-Action-Pack'
+<#
+.SYNOPSIS
+
+Login to Azure 
+
+.DESCRIPTION
+
+Login to Azure 
+
+.PARAMETER Subscriptionname
+
+Azure Subscription name
+
+.EXAMPLE
+
+Read computer names from Active Directory and retrieve their inventory information.
+
+Login-Azure -SubscriptionName <Azure Subscription Name>
+#>
+
 function Login-Azure{
 
     Param
@@ -431,6 +449,8 @@ function Create-WindowsVM {
                 
                 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
                                        
+                return $vm
+
                 #Success Message
                 Write-Host 'VM created successfully!' -ForegroundColor Green
             }
@@ -452,6 +472,8 @@ function Install-IIS {
    [cmdletbinding()]
    Param
    ( 
+        [Parameter(ValueFromPipeline)] 
+        $vm,
         [Parameter(Mandatory=$true, Position=1)]
         $VMName,
         [Parameter(Mandatory=$true, Position=2)]
