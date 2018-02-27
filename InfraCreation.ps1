@@ -449,8 +449,6 @@ function Create-WindowsVM {
                 
                 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
                                        
-                return $vm
-
                 #Success Message
                 Write-Host 'VM created successfully!' -ForegroundColor Green
             }
@@ -460,7 +458,7 @@ function Create-WindowsVM {
                 Write-Host 'VM already created and available' -ForegroundColor Green
             }
 
-            return $availset
+            return $vm
 
     } catch {
                 Write-Host $_.Exception.Message -ForegroundColor Red

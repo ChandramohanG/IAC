@@ -26,5 +26,5 @@ IAC using Azure - PowerShell functions. Compose as you like to create an Infrast
 
    ![2VM 1SQL](InfraDiagram.png)
    
-References: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/virtual-machines-windows/
+References: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/virtual-machines-windows/   
     
