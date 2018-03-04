@@ -369,15 +369,17 @@ function Create-WindowsVM {
         $availset,
         [Parameter(Mandatory=$true, Position=1)]
         $VMName,
-        [Parameter(Mandatory=$true, Position=2)]
-        $RGName,
+	    [Parameter(Mandatory=$true, Position=2)]
+        $cred,
         [Parameter(Mandatory=$true, Position=3)]
-        $StorageAccountName,
+        $RGName,
         [Parameter(Mandatory=$true, Position=4)]
+        $StorageAccountName,
+        [Parameter(Mandatory=$true, Position=5)]
         $NSGName,
-        [Parameter(Mandatory=$false, Position=5)]
-        $SubNetName,
         [Parameter(Mandatory=$true, Position=6)]
+        $SubNetName,
+        [Parameter(Mandatory=$true, Position=7)]
         $SQLServer="No"
    ) 
            

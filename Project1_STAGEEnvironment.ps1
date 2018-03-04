@@ -31,13 +31,13 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
                                 Create-AvailabilitySet -Name demoAvailabilitySet  | 
     
                                 # Create First Widows VM
-                                Create-WindowsVM -VMName "vmweb1" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-FrontEnd" -SubNetName "frontEndSubNet" -SQLServer "No" |
+                                Create-WindowsVM -VMName "vmweb1" -RGName "Agile2018_RG" -cred $cred -StorageAccountName "storageagile2018" -NSGName "NSG-FrontEnd" -SubNetName "frontEndSubNet" -SQLServer "No" |
 
                                 #Install-IIS
                                 Install-IIS -VMName "vmweb1" -RGName "Agile2018_RG" | 
 
                                 # Create Second Widows VM
-                                Create-WindowsVM -VMName "vmweb2" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-FrontEnd" -SubNetName "frontEndSubNet" -SQLServer "No" |
+                                Create-WindowsVM -VMName "vmweb2" -RGName "Agile2018_RG" -cred $cred -StorageAccountName "storageagile2018" -NSGName "NSG-FrontEnd" -SubNetName "frontEndSubNet" -SQLServer "No" |
 
                                     #Install-IIS
                                 Install-IIS -VMName "vmweb2"  -RGName "Agile2018_RG" 
@@ -59,4 +59,4 @@ Create-ResourceGroup -Name Agile2018_RG -Location "EASTUS2" |
                                 Add-NetworkSecurityRule -NsgName "NSG-BackEnd" -RGName "Agile2018_RG" -Rules $Backedrules 
     
                                  # Create Second Widows VM
-                                Create-WindowsVM -VMName "vmsqlserver" -RGName "Agile2018_RG" -StorageAccountName "storageagile2018" -NSGName "NSG-BackEnd" -SubNetName "backEndSubNet" -SQLServer "Yes"
+                                Create-WindowsVM -VMName "vmsqlserver" -RGName "Agile2018_RG" -cred $cred -StorageAccountName "storageagile2018" -NSGName "NSG-BackEnd" -SubNetName "backEndSubNet" -SQLServer "Yes"
